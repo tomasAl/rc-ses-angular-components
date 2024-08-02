@@ -1,0 +1,111 @@
+<main class="main">
+  <h1>H1 test</h1>
+  <h2>H2 test</h2>
+  <h3>H3 test</h3>
+  <h4>H4 test</h4>
+  <h5>H5 test</h5>
+  <h6>H6 test</h6>
+
+  <br />
+  <br />
+  <button rc-ses-button mat-button>RC SES basic button</button>
+  &nbsp;
+  <button rc-ses-button mat-button disabled>RC SES basic button</button>
+
+  <br />
+  <br />
+  <button rc-ses-button mat-flat-button>RC SES button</button>
+  &nbsp;
+  <button rc-ses-button mat-flat-button disabled>RC SES button</button>
+  &nbsp;
+  <button rc-ses-button mat-stroked-button>RC SES button</button>
+  &nbsp;
+  <button rc-ses-button mat-stroked-button disabled>RC SES button</button>
+
+  <br />
+  <br />
+  <button rc-ses-button mat-flat-button color="secondary">RC SES secondary button</button>
+  &nbsp;
+  <button rc-ses-button mat-flat-button color="secondary" disabled>RC SES secondary button</button>
+  &nbsp;
+  <button rc-ses-button mat-stroked-button color="secondary">RC SES secondary button</button>
+  &nbsp;
+  <button rc-ses-button mat-stroked-button color="secondary" disabled>RC SES secondary button</button>
+
+  <br />
+  <br />
+  <button rc-ses-button mat-flat-button color="neutral">RC SES neutral button</button>
+  &nbsp;
+  <button rc-ses-button mat-flat-button color="neutral" disabled>RC SES neutral button</button>
+  &nbsp;
+  <button rc-ses-button mat-stroked-button color="neutral">RC SES neutral button</button>
+  &nbsp;
+  <button rc-ses-button mat-stroked-button color="neutral" disabled>RC SES neutral button</button>
+
+  <br />
+  <br />
+  <button rc-ses-button mat-flat-button color="dark">RC SES dark button</button>
+  &nbsp;
+  <button rc-ses-button mat-flat-button color="dark" disabled>RC SES dark button</button>
+
+  <br />
+  <br />
+  <button rc-ses-button mat-flat-button color="danger">RC SES danger button</button>
+  &nbsp;
+  <button rc-ses-button mat-flat-button color="danger" disabled>RC SES danger button</button>
+
+  <br />
+  <br />
+
+  <rc-ses-form-field
+    label="Noice label"
+    labelSubtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+    [formControl]="testInputFormControl"
+  >
+    <mat-form-field>
+      <input rc-ses-input matInput type="text" [formControl]="testInputFormControl">
+    </mat-form-field>
+  </rc-ses-form-field>
+
+  <br />
+
+  <rc-ses-form-field
+    label="Noice label"
+    labelSubtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+  >
+    <mat-form-field>
+      <input rc-ses-input matInput type="text" [(ngModel)]="value" required>
+    </mat-form-field>
+  </rc-ses-form-field>
+
+  <br />
+
+  <rc-ses-form-field
+    label="Disabled"
+    labelSubtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+  >
+    <mat-form-field>
+      <input rc-ses-input matInput type="text" [(ngModel)]="value" disabled>
+    </mat-form-field>
+  </rc-ses-form-field>
+
+  <br />
+
+  <rc-ses-form-field
+    label="Readonly"
+    labelSubtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+  >
+    <mat-form-field>
+      <input rc-ses-input matInput type="text" [(ngModel)]="value" readonly>
+    </mat-form-field>
+  </rc-ses-form-field>
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+</main>
+
+<router-outlet />

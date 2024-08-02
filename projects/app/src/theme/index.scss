@@ -1,0 +1,29 @@
+@use '@angular/material' as mat;
+
+@use './palette.scss' as palette;
+@use './typography.scss' as typography;
+@use './theme.scss' as theme;
+
+@use '../../../rc-ses/angular-components/src/lib/components/button/button.scss' as button;
+@use '../../../rc-ses/angular-components/src/lib/components/form/form-field//form-field.scss' as form-field;
+@use '../../../rc-ses/angular-components/src/lib/components/form/input/input/input.scss' as input;
+
+@layer rc-ses-variables, rc-ses, material;
+
+@layer material {
+  @include mat.core();
+
+  html {
+    @include mat.all-component-themes(theme.$theme);
+  }
+
+  html, body { height: 100%; }
+
+  @include mat.color-variants-backwards-compatibility(theme.$theme);
+  @include mat.typography-hierarchy(typography.$typography, $back-compat: true);
+}
+
+@include button.rc-ses-components-button(theme.$theme, typography.$typography);
+@include form-field.rc-ses-components-form-field(theme.$theme, typography.$typography);
+@include input.rc-ses-components-input(theme.$theme, typography.$typography);
+

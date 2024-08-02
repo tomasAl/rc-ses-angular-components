@@ -1,0 +1,12 @@
+@if(label) {
+  <mat-label class="rc-ses-label">
+    {{ label }}:
+    @if(labelSubtitle) {
+      <div class="rc-ses-label-subtitle">{{ labelSubtitle }}</div>
+    }
+  </mat-label>
+}
+<ng-content />
+@if (formControl?.hasError('required')) {
+  <mat-error>Duuuude</mat-error>
+}

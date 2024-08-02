@@ -1,0 +1,83 @@
+@use 'sass:color';
+@use '@angular/material' as mat;
+
+:host {
+  align-items: center;
+  display: flex;
+
+  &.rc-ses-has-label-subtitle {
+    align-items: center;
+  }
+}
+
+@mixin rc-ses-components-form-field($theme, $typography) {
+  @layer rc-ses {
+    .rc-ses-form-field {
+
+      .rc-ses-label {
+        color: mat.get-theme-color($theme, neutral, 0);
+        font-weight: 500;
+        margin-right: 1.5rem;
+        max-width: 243px;
+        text-align: right;
+
+        .rc-ses-label-subtitle {
+          color: mat.get-theme-color($theme, neutral, 30);
+          font-size: .75rem;
+          font-style: italic;
+          line-height: 1rem;
+          margin-top: .125rem;
+        }
+      }
+
+      .mdc-text-field--outlined {
+        padding-right: max(.75rem, var(--mdc-outlined-text-field-container-shape)) !important;
+        padding-left: max(.75rem, var(--mdc-outlined-text-field-container-shape) + 4px) !important;
+      }
+
+      .mat-mdc-form-field:not(:disabled):not(.mat-form-field-disabled):not(.mat-form-field--readonly) {
+
+        &:hover .mat-mdc-notch-piece {
+          border-color: mat.get-theme-color($theme, primary, 50) !important;
+        }
+
+        &.mat-focused .mdc-notched-outline::before {
+          box-shadow: 0px 0px 0px 3px #{color.adjust(mat.get-theme-color($theme, primary, 50), $alpha: -0.8)};
+          border-radius: var(--mdc-outlined-text-field-container-shape);
+          content: "";
+          position: absolute;
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      .mat-mdc-form-field.mat-form-field--readonly {
+        background-color: mat.get-theme-color($theme, neutral, 98) !important;
+
+        .mat-mdc-notch-piece,
+        &:active .mat-mdc-notch-piece,
+        &:hover .mat-mdc-notch-piece,
+        &:focus .mat-mdc-notch-piece {
+          border-color: mat.get-theme-color($theme, neutral, 50) !important;
+        }
+
+        .mat-mdc-input-element {
+          color: mat.get-theme-color($theme, neutral, 20) !important;
+        }
+      }
+    }
+  }
+
+  @layer rc-ses-variables {
+    @debug map-get($typography, 'body-2', 'font-size');
+
+    :root {
+      --mat-form-field-container-height: 2.75rem;
+      --mat-form-field-container-text-line-height: 1.125rem;
+      --mat-form-field-container-text-size: #{map-get($typography, 'body-2', 'font-size')};
+      --mat-form-field-container-vertical-padding: .8125rem;
+
+      --mdc-outlined-text-field-focus-outline-width: 1px;
+    }
+  }
+}
