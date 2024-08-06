@@ -1,0 +1,15 @@
+@use '@angular/material' as mat;
+
+@mixin rc-ses-components-service-form-container($theme, $typography) {
+  @layer rc-ses {
+    .rc-ses-service-form-container {
+
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+
+    }
+  }
+}

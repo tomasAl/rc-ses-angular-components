@@ -7,6 +7,10 @@
 @use '../../../rc-ses/angular-components/src/lib/components/button/button.scss' as button;
 @use '../../../rc-ses/angular-components/src/lib/components/form/form-field//form-field.scss' as form-field;
 @use '../../../rc-ses/angular-components/src/lib/components/form/input/input/input.scss' as input;
+@use '../../../rc-ses/angular-components/src/lib/components/layout/breadcrumbs/breadcrumbs.scss' as breadcrumbs;
+@use '../../../rc-ses/angular-components/src/lib/components/layout/service-header/service-header.scss' as service-header;
+@use '../../../rc-ses/angular-components/src/lib/components/layout/service-page/service-page.scss' as service-page;
+@use '../../../rc-ses/angular-components/src/lib/components/layout/service-wizard-steps/service-wizard-steps.scss' as service-wizard-steps;
 
 @layer rc-ses-variables, rc-ses, material;
 
@@ -17,7 +21,10 @@
     @include mat.all-component-themes(theme.$theme);
   }
 
-  html, body { height: 100%; }
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
 
   @include mat.color-variants-backwards-compatibility(theme.$theme);
   @include mat.typography-hierarchy(typography.$typography, $back-compat: true);
@@ -26,4 +33,8 @@
 @include button.rc-ses-components-button(theme.$theme, typography.$typography);
 @include form-field.rc-ses-components-form-field(theme.$theme, typography.$typography);
 @include input.rc-ses-components-input(theme.$theme, typography.$typography);
+@include service-header.rc-ses-components-service-header(theme.$theme, typography.$typography);
+@include breadcrumbs.rc-ses-components-breadcrumbs(theme.$theme, typography.$typography);
+@include service-page.rc-ses-components-service-page(theme.$theme, typography.$typography);
+@include service-wizard-steps.rc-ses-components-service-wizard-steps(theme.$theme, typography.$typography);
 

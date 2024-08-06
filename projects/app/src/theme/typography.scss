@@ -9,7 +9,7 @@ $typography: null;
       $font-size: 2.25rem,
       $font-weight: 500,
       $letter-spacing: 0,
-      $line-height: 1.1,
+      $line-height: 3rem,
     ),
     $headline-2: mat.m2-define-typography-level(
       $font-size: 5rem,
@@ -33,7 +33,7 @@ $typography: null;
       $font-size: 2.25rem,
       $font-weight: 500,
       $letter-spacing: 0,
-      $line-height: 1.6875,
+      $line-height: 3rem,
     ),
     $headline-6: mat.m2-define-typography-level(
       $font-size: 1.25rem,

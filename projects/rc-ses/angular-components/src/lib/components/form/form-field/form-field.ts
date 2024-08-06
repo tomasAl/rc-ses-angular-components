@@ -69,13 +69,9 @@ export class FormField implements AfterViewInit, OnDestroy, OnInit {
   }
 
   ngAfterViewInit() {
-    console.debug(this.input);
-    // console.debug(this.control);
     if (this.input.readonly) {
       this._renderer.addClass(this.formField._elementRef.nativeElement, 'mat-form-field-readonly');
       this._renderer.addClass(this.formFieldRef.nativeElement, 'mat-form-field--readonly');
-      // this._renderer.addClass(this.formFieldRef.nativeElement, 'mdc-text-field--readonly');
-      // this._renderer.addClass(this.formFieldRef.nativeElement, 'mdc-text-field--disabled');
     }
 
     this.initialized = true;

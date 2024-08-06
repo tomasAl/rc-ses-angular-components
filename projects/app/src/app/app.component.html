@@ -1,11 +1,22 @@
 <main class="main">
-  <h1>H1 test</h1>
-  <h2>H2 test</h2>
-  <h3>H3 test</h3>
-  <h4>H4 test</h4>
-  <h5>H5 test</h5>
-  <h6>H6 test</h6>
+  <rc-ses-service-page>
+    <rc-ses-service-header
+      serviceName="Nekilnojamojo turto registro išrašas pagal nurodytą turto adresą"
+      serviceDescription="Šiame puslapyje Jūs galite užsisakyti Nekilnojamojo turto registro išrašus, pažymas bei kitus dokumentus. Užsakytą NTR išrašą, pažymą ar kitą dokumentą galėsite gauti elektroniniu būdu arba atsiimti pasirinktame VĮ Registrų centro padalinyje."
+    />
+    <rc-ses-service-wizard-steps
+      [steps]="[
+        { state: 'completed', label: 'Bazinė informacija'},
+        { state: 'active', label: 'Paslaugos užsakymas'},
+        { state: 'pending', label: 'Išdavimas'},
+        { state: 'pending', label: 'Reikalingos papildomos paslaugos'},
+        { state: 'pending', label: 'Terminai ir sąlygos'},
+      ]"
+    />
+    <rc-ses-service-form-container></rc-ses-service-form-container>
+  </rc-ses-service-page>
 
+<!--
   <br />
   <br />
   <button rc-ses-button mat-button>RC SES basic button</button>
@@ -60,10 +71,34 @@
   <rc-ses-form-field
     label="Noice label"
     labelSubtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+  >
+    <mat-form-field>
+      <input rc-ses-input matInput type="text" placeholder="Placeholder">
+    </mat-form-field>
+  </rc-ses-form-field>
+
+  <br />
+
+  <rc-ses-form-field
+    label="Noice label"
+  >
+    <mat-form-field>
+      <input rc-ses-input matInput type="text" placeholder="Placeholder">
+    </mat-form-field>
+  </rc-ses-form-field>
+
+  <br />
+
+  <rc-ses-form-field
+    label="Noice label"
+    labelSubtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
     [formControl]="testInputFormControl"
   >
     <mat-form-field>
       <input rc-ses-input matInput type="text" [formControl]="testInputFormControl">
+      @if (testInputFormControl.hasError('required')) {
+        <mat-error>Duuuude</mat-error>
+      }
     </mat-form-field>
   </rc-ses-form-field>
 
@@ -105,7 +140,7 @@
   <br />
   <br />
   <br />
-  <br />
+  <br /> -->
 </main>
 
 <router-outlet />
