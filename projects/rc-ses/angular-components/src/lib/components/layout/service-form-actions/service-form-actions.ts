@@ -1,20 +1,21 @@
 import { DOCUMENT } from "@angular/common";
 import { Component, AfterViewInit, OnDestroy, ElementRef, Inject, OnInit, Renderer2, contentChild } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
 import { MatAccordion } from "@angular/material/expansion";
 import { MatIconModule } from "@angular/material/icon";
-import { ServiceFormActions } from "../service-form-actions/service-form-actions";
+import { ButtonDirective } from "../../button/button";
 
 @Component({
-  selector: 'rc-ses-service-form-container',
+  selector: 'rc-ses-service-form-actions',
   standalone: true,
-  templateUrl: 'service-form-container.html',
-  imports: [MatButtonModule, MatIconModule, ServiceFormActions],
+  templateUrl: 'service-form-actions.html',
+  imports: [MatButtonModule, MatCardModule, MatIconModule, ButtonDirective],
   host: {
-    class: 'rc-ses-element rc-ses-service-form-container'
+    class: 'rc-ses-element rc-ses-service-form-actions'
   },
 })
-export class ServiceFormContainer implements AfterViewInit, OnDestroy, OnInit {
+export class ServiceFormActions implements AfterViewInit, OnDestroy, OnInit {
   public readonly accordion = contentChild.required(MatAccordion);
 
   public initialized: boolean | undefined;

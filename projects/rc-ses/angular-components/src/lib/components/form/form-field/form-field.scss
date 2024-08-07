@@ -83,8 +83,6 @@
   }
 
   @layer rc-ses-variables {
-    @debug map-get($typography, 'body-2', 'font-size');
-
     :root {
       --mat-form-field-container-height: 2.75rem;
       --mat-form-field-container-text-line-height: 1.125rem;

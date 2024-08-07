@@ -108,7 +108,6 @@
          * TERTIARY
          */
         &.mat-neutral {
-          background-color: mat.get-theme-color($theme, neutral, 98) !important;
           color: mat.get-theme-color($theme, neutral, 20) !important;
 
           &:hover {
@@ -120,6 +119,22 @@
           &:active {
             .mat-mdc-button-persistent-ripple::before {
               background-color: mat.get-theme-color($theme, neutral, 90) !important;
+            }
+          }
+
+          &.mat-mdc-unelevated-button {
+            background-color: mat.get-theme-color($theme, neutral, 98) !important;
+
+            &:hover {
+              .mat-mdc-button-persistent-ripple::before {
+                background-color: mat.get-theme-color($theme, neutral, 95) !important;
+              }
+            }
+
+            &:active {
+              .mat-mdc-button-persistent-ripple::before {
+                background-color: mat.get-theme-color($theme, neutral, 90) !important;
+              }
             }
           }
 
@@ -199,6 +214,7 @@
     :root {
       --mdc-text-button-container-shape: .1875rem;
       --mdc-text-button-container-height: 2.75rem;
+      --mdc-text-button-label-text-size: #{map-get($typography, 'body-2', 'font-size')};
 
       --mdc-filled-button-container-color: #{mat.get-theme-color($theme, primary, 95)};
       --mdc-filled-button-container-height: 2.75rem;
@@ -211,6 +227,7 @@
       --mdc-filled-button-label-text-color: #{mat.get-theme-color($theme, primary, 0)};
       --mat-filled-button-pressed-state-layer-opacity: 1;
       --mat-filled-button-state-layer-color: 0;
+      --mdc-filled-button-label-text-size: #{map-get($typography, 'body-2', 'font-size')};
 
       --mdc-outlined-button-container-color: white;
       --mdc-outlined-button-container-height: 2.75rem;
@@ -218,9 +235,10 @@
       --mdc-outlined-button-disabled-label-text-color: #{mat.get-theme-color($theme, neutral, 70)};
       --mdc-outlined-button-disabled-container-color: #{mat.get-theme-color($theme, neutral, 90)};
       --mat-outlined-button-horizontal-padding: 1.25rem;
-      --mdc-outlined-button-label-text-weight: 600;
       --mat-outlined-button-hover-state-layer-opacity: 1;
+      --mdc-outlined-button-label-text-size: #{map-get($typography, 'body-2', 'font-size')};
       --mdc-outlined-button-label-text-color: #{mat.get-theme-color($theme, primary, 40)};
+      --mdc-outlined-button-label-text-weight: 600;
       --mdc-outlined-button-outline-color: #{mat.get-theme-color($theme, primary, 40)};
       --mat-outlined-button-pressed-state-layer-opacity: 1;
       --mat-outlined-button-state-layer-color: 0;

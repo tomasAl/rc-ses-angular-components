@@ -1,6 +1,6 @@
 import { DOCUMENT } from "@angular/common";
 import { Component, AfterViewInit, OnDestroy, ElementRef, Inject, OnInit, Renderer2, Input } from "@angular/core";
-import { Breadcrumbs } from "../breadcrumbs/breadcrumbs";
+import { Breadcrumbs } from "../../breadcrumbs/breadcrumbs";
 
 @Component({
   selector: 'rc-ses-service-page',
