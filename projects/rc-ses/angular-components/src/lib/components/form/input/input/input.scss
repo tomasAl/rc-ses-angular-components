@@ -59,6 +59,7 @@
       --mdc-outlined-text-field-disabled-outline-color: #{mat.get-theme-color($theme, neutral, 40)};
       --mdc-outlined-text-field-focus-outline-color: #{mat.get-theme-color($theme, neutral, 20)};
       --mdc-outlined-text-field-focus-outline-width: 2px;
+      --mdc-outlined-text-field-input-text-color: #{mat.get-theme-color($theme, neutral, 20)};
       --mdc-outlined-text-field-input-text-placeholder-color: #{mat.get-theme-color($theme, neutral, 40)};
       --mdc-outlined-text-field-outline-color: #{mat.get-theme-color($theme, neutral, 40)};
     }

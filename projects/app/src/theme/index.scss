@@ -6,8 +6,10 @@
 
 @use '../../../rc-ses/angular-components/src/lib/components/accordion/accordion.scss' as accordion;
 @use '../../../rc-ses/angular-components/src/lib/components/button/button.scss' as button;
+@use '../../../rc-ses/angular-components/src/lib/components/form/checkbox/checkbox.scss' as checkbox;
 @use '../../../rc-ses/angular-components/src/lib/components/form/form-field/form-field.scss' as form-field;
 @use '../../../rc-ses/angular-components/src/lib/components/form/input/input/input.scss' as input;
+@use '../../../rc-ses/angular-components/src/lib/components/form/select/select.scss' as select;
 @use '../../../rc-ses/angular-components/src/lib/components/breadcrumbs/breadcrumbs.scss' as breadcrumbs;
 @use '../../../rc-ses/angular-components/src/lib/components/layout/service-header/service-header.scss' as service-header;
 @use '../../../rc-ses/angular-components/src/lib/components/layout/service-form-actions/service-form-actions.scss' as service-form-actions;
@@ -35,8 +37,11 @@
 
 @include accordion.rc-ses-components-accordion(theme.$theme, typography.$typography);
 @include button.rc-ses-components-button(theme.$theme, typography.$typography);
+@include checkbox.rc-ses-components-checkbox(theme.$theme, typography.$typography);
 @include form-field.rc-ses-components-form-field(theme.$theme, typography.$typography);
 @include input.rc-ses-components-input(theme.$theme, typography.$typography);
+@include select.rc-ses-components-select(theme.$theme, typography.$typography);
+
 @include service-header.rc-ses-components-service-header(theme.$theme, typography.$typography);
 @include breadcrumbs.rc-ses-components-breadcrumbs(theme.$theme, typography.$typography);
 @include service-form-actions.rc-ses-components-service-form-actions(theme.$theme, typography.$typography);

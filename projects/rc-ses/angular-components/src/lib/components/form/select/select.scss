@@ -1,0 +1,135 @@
+@use 'sass:color';
+@use '@angular/material' as mat;
+
+@mixin rc-ses-components-select($theme, $typography) {
+  @layer rc-ses {
+    .rc-ses-select {
+      flex-grow: 1;
+
+      .mat-mdc-form-field {
+        width: 100%;
+      }
+
+      .mat-mdc-select-arrow-wrapper {
+        height: #{map-get($typography, 'body-2', 'line-height')} !important;
+      }
+    }
+
+    .cdk-overlay-pane {
+
+      .rc-ses-select-search-wrapper {
+        background-color: mat.get-theme-color($theme, neutral, 100);
+        border-bottom: 1px solid mat.get-theme-color($theme, neutral, 90);
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+        margin-top: -0.375rem;
+        padding: .75rem 1rem;
+
+        .mdc-checkbox {
+          margin-left: -.375rem !important;
+          margin-right: .5rem !important;
+          margin-top: -.25rem !important;
+        }
+      }
+
+      div.mat-mdc-select-panel {
+        border-radius: .25rem !important;
+        padding-bottom: .375rem !important;
+        padding-top: .375rem !important;
+        scrollbar-width: thin;
+
+        .mat-mdc-optgroup-label {
+          padding-left: .75rem !important;
+          padding-right: .75rem !important;
+
+          .mdc-list-item__primary-text {
+            color: mat.get-theme-color($theme, primary, 40) !important;
+            letter-spacing: .01em !important;
+            text-transform: uppercase !important;
+          }
+        }
+
+        .mdc-list-item {
+          margin-left: .375rem;
+          margin-right: .375rem;
+          padding: .8125rem .75rem !important;
+
+          &--disabled {
+            background-color: transparent !important;
+
+            &:before {
+              background-color: transparent !important;
+            }
+
+            .mat-pseudo-checkbox {
+              display: none !important;
+            }
+          }
+
+          &--selected {
+
+            &.mat-mdc-option-active:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple) {
+              background-color: mat.get-theme-color($theme, neutral, 98) !important;
+            }
+          }
+        }
+
+        .mat-mdc-option {
+          min-height: 1.125rem !important;
+
+          &-multiple {
+
+            .mat-pseudo-checkbox {
+              margin-bottom: -.25rem;
+              margin-top: -.25rem;
+            }
+          }
+
+          .description {
+            color: mat.get-theme-color($theme, neutral, 40) !important;
+            font-size: .75rem;
+            font-style: italic;
+          }
+        }
+
+        .mat-mdc-form-field-icon-prefix .mat-icon {
+          padding: 0 !important;
+        }
+      }
+
+      &:not(.mat-mdc-select-panel-above) {
+
+        div.mat-mdc-select-panel {
+          margin-top: .25rem;
+        }
+      }
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+      --mdc-list-list-item-label-text-color: #{mat.get-theme-color($theme, neutral, 20)};
+      --mdc-list-list-item-label-text-line-height: #{map-get($typography, 'body-2', 'line-height')};
+      --mdc-list-list-item-label-text-size: #{map-get($typography, 'body-2', 'font-size')};
+
+      --mat-optgroup-label-text-color: #{mat.get-theme-color($theme, primary, 40)};
+      --mat-optgroup-label-text-line-height: 1.0625rem;
+      --mat-optgroup-label-text-size: .75rem;
+      --mat-optgroup-label-text-weight: 500;
+
+      --mat-option-hover-state-layer-color: #{mat.get-theme-color($theme, neutral, 98)};
+      --mat-option-focus-state-layer-color: #{mat.get-theme-color($theme, neutral, 98)};
+      --mat-option-label-text-line-height: #{map-get($typography, 'body-2', 'line-height')};
+      --mat-option-label-text-size: #{map-get($typography, 'body-2', 'font-size')};
+      --mat-option-selected-state-layer-color: transparent;
+      --mat-option-selected-state-label-text-color: #{mat.get-theme-color($theme, neutral, 20)};
+
+      --mat-select-container-elevation-shadow:
+        0px 4px 16px 0px #{color.adjust(#091e42, $alpha: -0.76)},
+        0px 8px 16px 0px #{color.adjust(#091e42, $alpha: -0.90)};
+      --mat-select-trigger-text-size: #{map-get($typography, 'body-2', 'font-size')};
+      --mat-select-trigger-text-line-height: #{map-get($typography, 'body-2', 'line-height')};
+      --mat-select-panel-background-color: white;
+    }
+  }
+}

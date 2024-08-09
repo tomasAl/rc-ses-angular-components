@@ -13,13 +13,16 @@
 @mixin rc-ses-components-form-field($theme, $typography) {
   @layer rc-ses {
     .rc-ses-form-field {
+      margin-bottom: 1rem;
 
       .rc-ses-label {
         color: mat.get-theme-color($theme, neutral, 0);
+        font-size: map-get($typography, 'body-2', 'font-size');
         font-weight: 500;
+        line-height: 1.125rem;
         margin-right: 1.5rem;
-        max-width: 243px;
         text-align: right;
+        width: 243px;
 
         .rc-ses-label-subtitle {
           color: mat.get-theme-color($theme, neutral, 30);
@@ -31,6 +34,7 @@
       }
 
       .mat-mdc-form-field {
+        flex-grow: 1;
 
         &:not(:disabled):not(.mat-form-field-disabled):not(.mat-form-field--readonly) {
 
