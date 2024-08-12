@@ -4,7 +4,7 @@
 @mixin rc-ses-components-input($theme, $typography) {
   @layer rc-ses {
     .rc-ses-input {
-
+      background-color: white;
     }
 
     .mdc-text-field--outlined {
@@ -53,7 +53,6 @@
 
   @layer rc-ses-variables {
     :root {
-
       --mdc-outlined-text-field-caret-color: #{mat.get-theme-color($theme, neutral, 20)};
       --mdc-outlined-text-field-disabled-input-text-color: #{mat.get-theme-color($theme, neutral, 40)};
       --mdc-outlined-text-field-disabled-outline-color: #{mat.get-theme-color($theme, neutral, 40)};
