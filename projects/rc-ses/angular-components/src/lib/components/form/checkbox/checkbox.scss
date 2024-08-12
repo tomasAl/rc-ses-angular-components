@@ -4,10 +4,62 @@
 @mixin rc-ses-components-checkbox($theme, $typography) {
   @layer rc-ses {
 
+    .mat-mdc-checkbox {
+      --mdc-checkbox-selected-focus-icon-color: #{mat.get-theme-color($theme, primary, 50)};
+      --mdc-checkbox-selected-hover-icon-color: #{mat.get-theme-color($theme, primary, 50)};
+      --mdc-checkbox-selected-icon-color: #{mat.get-theme-color($theme, primary, 50)};
+      --mdc-checkbox-unselected-hover-icon-color: #{mat.get-theme-color($theme, primary, 50)};
+
+      &:not(.mat-mdc-checkbox-checked) {
+
+        .mdc-checkbox__background {
+          background-color: white !important;
+
+          &:after {
+            opacity: 0;
+          }
+        }
+      }
+    }
+
     .mdc-checkbox {
 
+      &:hover:not(.disabled) {
+
+        .mdc-checkbox__background {
+
+          &::before {
+            box-shadow: 0px 0px 0px 5px #{color.adjust(mat.get-theme-color($theme, primary, 60), $alpha: -0.8)};
+            border-radius: var(--mdc-outlined-text-field-container-shape);
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+          }
+        }
+
+        &:active {
+
+          .mdc-checkbox__background {
+            background-color: mat.get-theme-color($theme, primary, 98) !important;
+
+            &::after {
+
+            }
+          }
+        }
+      }
+
+      &:focus:not(:hover) {
+        --mdc-checkbox-unselected-focus-icon-color: #{mat.get-theme-color($theme, neutral, 50)} !important;
+
+        .mdc-checkbox__background {
+          outline: 2px solid #{mat.get-theme-color($theme, neutral, 0)} !important;
+          outline-offset: 2px;
+        }
+      }
+
       &__background {
-        border-color: mat.get-theme-color($theme, neutral, 50) !important;
         border-radius: .25rem !important;
         bottom: .5rem !important;
         height: 1.5rem !important;
@@ -30,6 +82,10 @@
           display: none;
 
         }
+      }
+
+      &__ripple {
+        display: none !important;
       }
     }
 
@@ -60,9 +116,16 @@
   }
 
   @layer rc-ses-variables {
-    :root {
+    :root,
+    .cdk-overlay-container {
+      --mdc-checkbox-selected-focus-icon-color: #{mat.get-theme-color($theme, primary, 50)};
+      --mdc-checkbox-selected-hover-icon-color: #{mat.get-theme-color($theme, primary, 50)};
       --mdc-checkbox-selected-icon-color: #{mat.get-theme-color($theme, primary, 50)};
+
+      --mdc-checkbox-unselected-focus-icon-color: #{mat.get-theme-color($theme, primary, 50)};
+      --mdc-checkbox-unselected-hover-icon-color: #{mat.get-theme-color($theme, primary, 50)};
       --mdc-checkbox-unselected-icon-color: #{mat.get-theme-color($theme, neutral, 50)};
+
       --mat-full-pseudo-checkbox-selected-icon-color: #{mat.get-theme-color($theme, primary, 50)};
       --mat-full-pseudo-checkbox-unselected-icon-color: #{mat.get-theme-color($theme, neutral, 50)};
     }
