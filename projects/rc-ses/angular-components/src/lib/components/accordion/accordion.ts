@@ -19,9 +19,7 @@ export class AccordionDirective implements AfterViewInit, OnDestroy, OnInit {
     private _renderer: Renderer2,
   ) {}
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   ngAfterViewInit() {
     this.initialized = true;
