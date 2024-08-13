@@ -26,7 +26,7 @@
 
         .rc-ses-label-subtitle {
           color: mat.get-theme-color($theme, neutral, 30);
-          font-size: .75rem;
+          font-size: map-get($typography, 'body-2', 'font-size');
           font-style: italic;
           line-height: 1rem;
           margin-top: .125rem;
