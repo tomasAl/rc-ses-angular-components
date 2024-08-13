@@ -1,6 +1,6 @@
-import { DOCUMENT } from "@angular/common";
-import { Component, AfterViewInit, OnDestroy, ElementRef, Inject, OnInit, Renderer2, Input, ContentChildren, QueryList, ChangeDetectorRef, model, OnChanges, SimpleChanges } from "@angular/core";
-import { FormControl, FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { CommonModule, DOCUMENT } from "@angular/common";
+import { Component, AfterViewInit, OnDestroy, ElementRef, Inject, Renderer2, Input, ContentChildren, QueryList, ChangeDetectorRef, model, OnChanges, SimpleChanges, OnInit, forwardRef, ViewChild, Injector } from "@angular/core";
+import { ControlContainer, ControlValueAccessor, FormControl, FormControlDirective, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatCommonModule, MatOption, MatOptionModule } from "@angular/material/core";
@@ -10,14 +10,15 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 
-type Option  = { value: string, label: string, description?: string };
-type Options  = Option[];
+type Option = { value: string, label: string, description?: string };
+type Options = Option[];
 
 @Component({
   selector: 'rc-ses-select',
   standalone: true,
   templateUrl: 'select.html',
   imports: [
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
 
@@ -34,11 +35,24 @@ type Options  = Option[];
   host: {
     class: 'rc-ses-element rc-ses-select'
   },
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => SelectComponent),
+      multi: true
+    }
+  ]
 })
-export class SelectComponent implements AfterViewInit, OnChanges, OnDestroy {
-  @ContentChildren(MatOption) queryOptions!: QueryList<MatOption>;
+export class SelectComponent implements ControlValueAccessor, AfterViewInit, OnChanges, OnInit, OnDestroy {
+  @ContentChildren(MatOption)
+  queryOptions!: QueryList<MatOption>;
+
+  @ViewChild(FormControlDirective, {static: true})
+  formControlDirective: FormControlDirective | undefined;
 
   @Input() formControl!: FormControl;
+  @Input() formControlName: string | undefined;
+
   @Input() options!: Options;
 
   @Input() multiple: boolean | '' = false;
@@ -56,7 +70,29 @@ export class SelectComponent implements AfterViewInit, OnChanges, OnDestroy {
     @Inject(DOCUMENT) private _document: Document,
     public _element: ElementRef,
     private _renderer: Renderer2,
+    private injector: Injector,
   ) {}
+
+  get controlContainer() {
+    return this.injector.get(ControlContainer);
+  }
+
+  get control() {
+    return this.formControl ||
+      (this.formControlName && this.controlContainer.control?.get(this.formControlName));
+  }
+
+  writeValue(obj: any): void {
+    this.formControlDirective?.valueAccessor?.writeValue(obj);
+  }
+
+  registerOnChange(fn: any): void {
+    this.formControlDirective?.valueAccessor?.registerOnChange(fn);
+  }
+
+  registerOnTouched(fn: any): void {
+    this.formControlDirective?.valueAccessor?.registerOnTouched(fn);
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.filteredOptions = changes['options'].currentValue
@@ -80,12 +116,6 @@ export class SelectComponent implements AfterViewInit, OnChanges, OnDestroy {
     this.initialized = false;
   }
 
-  purposeOptions: { value: string, label: string, description?: string }[] = [
-    { value: 'tikslas1', label: 'neTikslas 1' },
-    { value: 'netikslas2', label: 'neTikslas 2' },
-    { value: 'netikslas3', label: 'neTikslas 3' },
-  ];
-
   filterOptions = ($event: KeyboardEvent) => {
     $event.stopPropagation();
     const query = ($event.target as HTMLInputElement).value;
@@ -99,15 +129,15 @@ export class SelectComponent implements AfterViewInit, OnChanges, OnDestroy {
     const filteredOptionValues: Option['value'][] = this.filteredOptions.map((o) => o.value) || [];
 
     if (checked) {
-      this.formControl.setValue(filteredOptionValues)
+      this.control.setValue(filteredOptionValues)
     } else {
-      const currentSelection: Option['value'][] = this.formControl.value || [];
-      this.formControl.setValue(currentSelection.filter((c) => !filteredOptionValues.includes(c)))
+      const currentSelection: Option['value'][] = this.control.value || [];
+      this.control.setValue(currentSelection.filter((c) => !filteredOptionValues.includes(c)))
     }
   }
 
   isFullSelection = () => {
-    const currentSelection: Option['value'][] = this.formControl.value || [];
+    const currentSelection: Option['value'][] = this.control.value || [];
 
     if (this.filteredOptions.length === 0 || currentSelection.length === 0)
       return false;
@@ -116,10 +146,10 @@ export class SelectComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   isPartialSelection = () => {
-    if (!this.filteredOptions.length || !this.formControl.value.length)
+    if (!this.filteredOptions.length || !this.control.value.length)
       return false;
 
-    const currentSelection: Option['value'][] = this.formControl.value || [];
+    const currentSelection: Option['value'][] = this.control.value || [];
     return !this.isFullSelection() && this.filteredOptions.some((o) => currentSelection.includes(o.value));
   }
 }
