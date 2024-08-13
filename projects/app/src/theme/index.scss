@@ -5,12 +5,16 @@
 @use './theme.scss' as theme;
 
 @use '../../../rc-ses/angular-components/src/lib/components/accordion/accordion.scss' as accordion;
+@use '../../../rc-ses/angular-components/src/lib/components/breadcrumbs/breadcrumbs.scss' as breadcrumbs;
 @use '../../../rc-ses/angular-components/src/lib/components/button/button.scss' as button;
-@use '../../../rc-ses/angular-components/src/lib/components/form/checkbox/checkbox.scss' as checkbox;
 @use '../../../rc-ses/angular-components/src/lib/components/form/form-field/form-field.scss' as form-field;
+@use '../../../rc-ses/angular-components/src/lib/components/form/input/agreement-checkbox/agreement-checkbox.scss' as agreement-checkbox;
+@use '../../../rc-ses/angular-components/src/lib/components/form/input/checkbox/checkbox.scss' as checkbox;
 @use '../../../rc-ses/angular-components/src/lib/components/form/input/input/input.scss' as input;
 @use '../../../rc-ses/angular-components/src/lib/components/form/input/number-stepper/number-stepper.scss' as number-stepper;
-@use '../../../rc-ses/angular-components/src/lib/components/breadcrumbs/breadcrumbs.scss' as breadcrumbs;
+@use '../../../rc-ses/angular-components/src/lib/components/form/input/select/select.scss' as select;
+@use '../../../rc-ses/angular-components/src/lib/components/form/input/radio-button-group/radio-button-group.scss' as radio-button-group;
+@use '../../../rc-ses/angular-components/src/lib/components/message/message.scss' as message;
 @use '../../../rc-ses/angular-components/src/lib/components/layout/service-header/service-header.scss' as service-header;
 @use '../../../rc-ses/angular-components/src/lib/components/layout/service-form-actions/service-form-actions.scss' as service-form-actions;
 @use '../../../rc-ses/angular-components/src/lib/components/layout/service-form-container/service-form-container.scss' as service-form-container;
@@ -35,12 +39,16 @@
   @include mat.typography-hierarchy(typography.$typography, $back-compat: true);
 }
 
+@include agreement-checkbox.rc-ses-components-agreement-checkbox(theme.$theme, typography.$typography);
+@include accordion.rc-ses-components-accordion(theme.$theme, typography.$typography);
 @include accordion.rc-ses-components-accordion(theme.$theme, typography.$typography);
 @include button.rc-ses-components-button(theme.$theme, typography.$typography);
 @include checkbox.rc-ses-components-checkbox(theme.$theme, typography.$typography);
 @include form-field.rc-ses-components-form-field(theme.$theme, typography.$typography);
 @include input.rc-ses-components-input(theme.$theme, typography.$typography);
+@include message.rc-ses-components-message(theme.$theme, typography.$typography);
 @include number-stepper.rc-ses-components-number-stepper(theme.$theme, typography.$typography);
+@include radio-button-group.rc-ses-components-radio-button-group(theme.$theme, typography.$typography);
 @include select.rc-ses-components-select(theme.$theme, typography.$typography);
 
 @include service-header.rc-ses-components-service-header(theme.$theme, typography.$typography);
