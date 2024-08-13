@@ -1,0 +1,21 @@
+@use 'sass:color';
+@use '@angular/material' as mat;
+
+@mixin rc-ses-components-agreement-checkbox($theme, $typography) {
+  @layer rc-ses {
+    .rc-ses-agreement-checkbox {
+      flex-grow: 1;
+
+      .mat-mdc-form-field {
+        background-color: mat.get-theme-color($theme, neutral, 99);
+        display: block !important;
+      }
+    }
+  }
+
+  @layer rc-ses-variables {
+    :root {
+
+    }
+  }
+}
