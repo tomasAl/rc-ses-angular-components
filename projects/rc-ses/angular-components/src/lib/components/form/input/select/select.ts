@@ -1,5 +1,5 @@
 import { CommonModule, DOCUMENT } from "@angular/common";
-import { Component, AfterViewInit, OnDestroy, ElementRef, Inject, Renderer2, Input, ContentChildren, QueryList, ChangeDetectorRef, model, OnChanges, SimpleChanges, OnInit, forwardRef, ViewChild, Injector } from "@angular/core";
+import { Component, AfterViewInit, OnDestroy, ElementRef, Inject, Renderer2, Input, ContentChildren, QueryList, ChangeDetectorRef, model, OnChanges, SimpleChanges, OnInit, forwardRef, ViewChild, Injector, booleanAttribute } from "@angular/core";
 import { ControlContainer, ControlValueAccessor, FormControl, FormControlDirective, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCheckboxModule } from "@angular/material/checkbox";
@@ -55,10 +55,10 @@ export class SelectComponent implements ControlValueAccessor, AfterViewInit, OnC
 
   @Input() options!: Options;
 
-  @Input() multiple: boolean | '' = false;
+  @Input({ transform: booleanAttribute }) multiple: boolean = false;
+  @Input({ transform: booleanAttribute }) searchable: boolean | '' = false;
   @Input() panelWidth: 'auto' | 'dynamic' | null = 'auto';
   @Input() placeholder: string = '';
-  @Input() searchable: boolean | '' = false;
 
   filteredOptions: Options = [];
 

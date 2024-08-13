@@ -26,6 +26,9 @@
         margin-bottom: .375rem;
         margin-top: -.375rem;
         padding: .75rem 1rem;
+        position: sticky;
+        top: -.375rem;
+        z-index: 1;
 
         .mat-mdc-checkbox {
           margin-left: -.375rem;
@@ -96,7 +99,7 @@
 
           .description {
             color: mat.get-theme-color($theme, neutral, 40) !important;
-            font-size: .75rem;
+            font-size: map-get($typography, 'body-2', 'font-size');
             font-style: italic;
           }
 
@@ -143,6 +146,7 @@
       --mat-select-trigger-text-size: #{map-get($typography, 'body-2', 'font-size')};
       --mat-select-trigger-text-line-height: #{map-get($typography, 'body-2', 'line-height')};
       --mat-select-panel-background-color: white;
+      --mat-select-placeholder-text-color: #{mat.get-theme-color($theme, neutral, 40)};
     }
   }
 }

@@ -7,9 +7,9 @@
     hideSingleSelectionIndicator
     disableRipple
   >
-    @if (searchable || searchable === '') {
+    @if (searchable) {
       <div class="rc-ses-select-search-wrapper">
-        @if (multiple || multiple === '') {
+        @if (multiple) {
           <mat-checkbox
             [checked]="isFullSelection()"
             [indeterminate]="isPartialSelection()"
