@@ -1,5 +1,5 @@
 import { CommonModule, DOCUMENT } from "@angular/common";
-import { Component, AfterViewInit, OnDestroy, ElementRef, Inject, Renderer2, Input, ContentChildren, QueryList, OnChanges, SimpleChanges, OnInit, forwardRef, ViewChild, Injector } from "@angular/core";
+import { Component, AfterViewInit, OnDestroy, ElementRef, Inject, Renderer2, Input, ContentChildren, QueryList, OnChanges, SimpleChanges, OnInit, forwardRef, ViewChild, Injector, booleanAttribute } from "@angular/core";
 import { ControlContainer, ControlValueAccessor, FormControl, FormControlDirective, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCommonModule } from "@angular/material/core";
@@ -48,6 +48,9 @@ export class RcSesRadioButtonGroupComponent implements ControlValueAccessor, Aft
   @Input() formControlName: string | undefined;
   @Input() options!: Options;
 
+  @Input({ transform: booleanAttribute }) displayAsButtons: boolean = false;
+  @Input({ transform: booleanAttribute }) hasBackground: boolean = false;
+
   initialized: boolean = false;
 
   constructor(
@@ -80,7 +83,13 @@ export class RcSesRadioButtonGroupComponent implements ControlValueAccessor, Aft
 
   ngOnChanges(_changes: SimpleChanges): void {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.displayAsButtons)
+      this._renderer.addClass(this._element.nativeElement, 'rc-ses-radio-button-group--radio-as-buttons');
+
+    if (this.hasBackground)
+      this._renderer.addClass(this._element.nativeElement, 'rc-ses-radio-button-group--has-background');
+  }
 
   ngAfterViewInit() {
     this.initialized = true;
