@@ -1,7 +1,7 @@
 @use 'sass:color';
 @use '@angular/material' as mat;
 
-@mixin rc-ses-components-agreement-checkbox($theme, $typography) {
+@mixin bootstrap($theme, $typography) {
   @layer rc-ses {
     .rc-ses-agreement-checkbox {
       flex-grow: 1;

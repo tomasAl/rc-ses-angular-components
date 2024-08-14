@@ -1,7 +1,7 @@
 @use 'sass:color';
 @use '@angular/material' as mat;
 
-@mixin rc-ses-components-checkbox($theme, $typography) {
+@mixin bootstrap($theme, $typography) {
   @layer rc-ses {
 
     .mat-mdc-checkbox {

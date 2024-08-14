@@ -1,6 +1,6 @@
 @use '@angular/material' as mat;
 
-@mixin rc-ses-components-accordion($theme, $typography) {
+@mixin bootstrap($theme, $typography) {
   @layer rc-ses {
     .rc-ses-accordion {
 

@@ -1,6 +1,6 @@
 @use '@angular/material' as mat;
 
-@mixin rc-ses-components-service-form-actions($theme, $typography) {
+@mixin bootstrap($theme, $typography) {
   @layer rc-ses {
     .rc-ses-service-form-actions {
       color: mat.get-theme-color($theme, primary, 30);

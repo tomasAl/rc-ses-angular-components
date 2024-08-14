@@ -1,7 +1,7 @@
 @use 'sass:color';
 @use '@angular/material' as mat;
 
-@mixin rc-ses-components-radio-button-group($theme, $typography) {
+@mixin bootstrap($theme, $typography) {
   @layer rc-ses {
     .rc-ses-radio-button-group {
 

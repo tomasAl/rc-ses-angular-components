@@ -10,7 +10,7 @@
   }
 }
 
-@mixin rc-ses-components-form-field($theme, $typography) {
+@mixin bootstrap($theme, $typography) {
   @layer rc-ses {
     .rc-ses-form-field {
       margin-bottom: 1rem;

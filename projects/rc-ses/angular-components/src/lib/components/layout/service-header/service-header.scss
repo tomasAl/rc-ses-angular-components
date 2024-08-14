@@ -1,6 +1,6 @@
 @use '@angular/material' as mat;
 
-@mixin rc-ses-components-service-header($theme, $typography) {
+@mixin bootstrap($theme, $typography) {
   @layer rc-ses {
     .rc-ses-service-header {
       background-color: mat.get-theme-color($theme, primary, 99);

@@ -1,7 +1,7 @@
 @use 'sass:color';
 @use '@angular/material' as mat;
 
-@mixin rc-ses-components-input($theme, $typography) {
+@mixin bootstrap($theme, $typography) {
   @layer rc-ses {
     .rc-ses-input {
       background-color: white;

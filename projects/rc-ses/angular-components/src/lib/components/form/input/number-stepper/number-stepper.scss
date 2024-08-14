@@ -1,7 +1,7 @@
 @use 'sass:color';
 @use '@angular/material' as mat;
 
-@mixin rc-ses-components-number-stepper($theme, $typography) {
+@mixin bootstrap($theme, $typography) {
   @layer rc-ses {
     .rc-ses-number-stepper {
       --mat-icon-button-hover-state-layer-opacity: 0;
