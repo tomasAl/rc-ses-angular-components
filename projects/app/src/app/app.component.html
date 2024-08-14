@@ -201,27 +201,179 @@
                   [options]="rcBranchOptions"
                   searchable
                 />
+                <mat-hint align="start">Informacija apie <a href="https://www.registrucentras.lt/p/1218" target="_blank">RC padalinius</a></mat-hint>
               </rc-ses-form-field>
             </form>
           </div>
         </mat-expansion-panel>
 
-        <mat-expansion-panel>
+        <mat-expansion-panel expanded>
           <mat-expansion-panel-header>
-            <mat-panel-title>Reikalingos papildomos paslaugos</mat-panel-title>
+            <mat-panel-title>Paslaugos pavadinimas</mat-panel-title>
           </mat-expansion-panel-header>
-          <div>content</div>
+          <div>
+            <form [formGroup]="formStep3">
+              <rc-ses-form-field label="Paslaugos pavadinimas">
+                <mat-form-field>
+                  <input rc-ses-input matInput type="text" formControlName="additionalServices" />
+                </mat-form-field>
+              </rc-ses-form-field>
+            </form>
+          </div>
         </mat-expansion-panel>
 
-        <mat-expansion-panel>
+        <mat-expansion-panel expanded>
           <mat-expansion-panel-header>
             <mat-panel-title>Terminai ir sąlygos</mat-panel-title>
           </mat-expansion-panel-header>
-          <div>content</div>
+          <div>
+            <form [formGroup]="formStep4">
+              <rc-ses-form-field>
+                <rc-ses-agreement-checkbox
+                  formControlName="termsAndConditionsAgreement"
+                  flat
+                >
+                <b>Užsakydamas darbus esu susipažinęs su <a href="#" target="_blank">darbų atlikimo ir atlyginimo tvarka</a> ir įsipareigoju apmokėti už užsakytus darbus. Esu informuotas, kad per nurodytą terminą neapmokėjus apskaičiuoto mokesčio, darbų užsakymas per pasiriktą terminą nebus įvykdytas.</b>
+              </rc-ses-agreement-checkbox>
+              </rc-ses-form-field>
+            </form>
+          </div>
         </mat-expansion-panel>
       </mat-accordion>
     </rc-ses-service-form-container>
   </rc-ses-service-page>
+
+<!--
+  <br />
+  <br />
+  <button rc-ses-button mat-button>RC SES basic button</button>
+  &nbsp;
+  <button rc-ses-button mat-button disabled>RC SES basic button</button>
+
+  <br />
+  <br />
+  <button rc-ses-button mat-button color="neutral">RC SES basic neutral button</button>
+  &nbsp;
+  <button rc-ses-button mat-button color="neutral" disabled>RC SES basic button</button>
+
+  <br />
+  <br />
+  <button rc-ses-button mat-flat-button>RC SES button</button>
+  &nbsp;
+  <button rc-ses-button mat-flat-button disabled>RC SES button</button>
+  &nbsp;
+  <button rc-ses-button mat-stroked-button>RC SES button</button>
+  &nbsp;
+  <button rc-ses-button mat-stroked-button disabled>RC SES button</button>
+
+  <br />
+  <br />
+  <button rc-ses-button mat-flat-button color="secondary">RC SES secondary button</button>
+  &nbsp;
+  <button rc-ses-button mat-flat-button color="secondary" disabled>RC SES secondary button</button>
+  &nbsp;
+  <button rc-ses-button mat-stroked-button color="secondary">RC SES secondary button</button>
+  &nbsp;
+  <button rc-ses-button mat-stroked-button color="secondary" disabled>RC SES secondary button</button>
+
+  <br />
+  <br />
+  <button rc-ses-button mat-flat-button color="neutral">RC SES neutral button</button>
+  &nbsp;
+  <button rc-ses-button mat-flat-button color="neutral" disabled>RC SES neutral button</button>
+  &nbsp;
+  <button rc-ses-button mat-stroked-button color="neutral">RC SES neutral button</button>
+  &nbsp;
+  <button rc-ses-button mat-stroked-button color="neutral" disabled>RC SES neutral button</button>
+
+  <br />
+  <br />
+  <button rc-ses-button mat-flat-button color="dark">RC SES dark button</button>
+  &nbsp;
+  <button rc-ses-button mat-flat-button color="dark" disabled>RC SES dark button</button>
+
+  <br />
+  <br />
+  <button rc-ses-button mat-flat-button color="danger">RC SES danger button</button>
+  &nbsp;
+  <button rc-ses-button mat-flat-button color="danger" disabled>RC SES danger button</button>
+
+  <br />
+  <br />
+
+  <rc-ses-form-field
+    label="Noice label"
+    labelSubtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+  >
+    <mat-form-field>
+      <input rc-ses-input matInput type="text" placeholder="Placeholder">
+    </mat-form-field>
+  </rc-ses-form-field>
+
+  <br />
+
+  <rc-ses-form-field
+    label="Noice label"
+  >
+    <mat-form-field>
+      <input rc-ses-input matInput type="text" placeholder="Placeholder">
+    </mat-form-field>
+  </rc-ses-form-field>
+
+  <br />
+
+  <rc-ses-form-field
+    label="Noice label"
+    labelSubtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+    [formControl]="testInputFormControl"
+  >
+    <mat-form-field>
+      <input rc-ses-input matInput type="text" [formControl]="testInputFormControl">
+      @if (testInputFormControl.hasError('required')) {
+        <mat-error>Duuuude</mat-error>
+      }
+    </mat-form-field>
+  </rc-ses-form-field>
+
+  <br />
+
+  <rc-ses-form-field
+    label="Noice label"
+    labelSubtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+  >
+    <mat-form-field>
+      <input rc-ses-input matInput type="text" [(ngModel)]="value" required>
+    </mat-form-field>
+  </rc-ses-form-field>
+
+  <br />
+
+  <rc-ses-form-field
+    label="Disabled"
+    labelSubtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+  >
+    <mat-form-field>
+      <input rc-ses-input matInput type="text" [(ngModel)]="value" disabled>
+    </mat-form-field>
+  </rc-ses-form-field>
+
+  <br />
+
+  <rc-ses-form-field
+    label="Readonly"
+    labelSubtitle="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard."
+  >
+    <mat-form-field>
+      <input rc-ses-input matInput type="text" [(ngModel)]="value" readonly>
+    </mat-form-field>
+  </rc-ses-form-field>
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br /> -->
 </main>
 
 <router-outlet />
