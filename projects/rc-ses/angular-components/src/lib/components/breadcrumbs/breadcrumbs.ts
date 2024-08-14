@@ -1,12 +1,16 @@
 import { DOCUMENT } from "@angular/common";
 import { Component, AfterViewInit, OnDestroy, ElementRef, Inject, OnInit, Renderer2, Input } from "@angular/core";
 import { MatListModule } from '@angular/material/list';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'rc-ses-breadcrumbs',
   standalone: true,
   templateUrl: 'breadcrumbs.html',
-  imports: [MatListModule],
+  imports: [
+    RouterLink,
+    MatListModule,
+  ],
   host: {
     class: 'rc-ses-element rc-ses-breadcrumbs'
   },
