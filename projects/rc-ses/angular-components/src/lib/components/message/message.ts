@@ -1,8 +1,8 @@
 import { DOCUMENT } from "@angular/common";
 import { Component, AfterViewInit, OnDestroy, ElementRef, Inject, OnInit, Renderer2, Input, ChangeDetectionStrategy, ContentChild, contentChild, booleanAttribute, contentChildren } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
-import { ButtonDirective } from "../button/button";
 import { MatIconModule } from "@angular/material/icon";
+import { RcSesButtonDirective } from "../button/button";
 
 @Component({
   selector: 'rc-ses-message',
@@ -12,13 +12,13 @@ import { MatIconModule } from "@angular/material/icon";
   imports: [
     MatButtonModule,
     MatIconModule,
-    ButtonDirective,
+    RcSesButtonDirective,
   ],
   host: {
     class: 'rc-ses-element rc-ses-message'
   },
 })
-export class MessageComponent implements AfterViewInit, OnDestroy, OnInit {
+export class RcSesMessageComponent implements AfterViewInit, OnDestroy, OnInit {
   @Input() severity: 'default' | 'info' | 'warning' | 'error' | 'success' | null | undefined = 'default';
   @Input() theme: 'light' | 'dark' | null | undefined = 'light';
 

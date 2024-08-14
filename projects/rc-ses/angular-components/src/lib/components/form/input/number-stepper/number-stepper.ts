@@ -30,12 +30,12 @@ import { MatInputModule } from "@angular/material/input";
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => NumberStepperComponent),
+      useExisting: forwardRef(() => RcSesNumberStepperComponent),
       multi: true
     }
   ]
 })
-export class NumberStepperComponent implements ControlValueAccessor, AfterViewInit, OnChanges, OnInit, OnDestroy {
+export class RcSesNumberStepperComponent implements ControlValueAccessor, AfterViewInit, OnChanges, OnInit, OnDestroy {
   @ViewChild(FormControlDirective, {static: true})
   formControlDirective: FormControlDirective | undefined;
 

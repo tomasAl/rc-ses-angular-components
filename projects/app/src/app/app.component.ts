@@ -10,21 +10,21 @@ import { MatCommonModule } from '@angular/material/core';
 import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
-import { AccordionDirective } from '../../../rc-ses/angular-components/src/lib/components/accordion/accordion';
-import { ButtonDirective } from '../../../rc-ses/angular-components/src/lib/components/button/button';
-import { FormFieldComponent } from '../../../rc-ses/angular-components/src/lib/components/form/form-field/form-field';
-import { InputDirective } from '../../../rc-ses/angular-components/src/lib/components/form/input/input/input';
+import { RcSesAccordionDirective } from '../../../rc-ses/angular-components/src/lib/components/accordion/accordion';
+import { RcSesButtonDirective } from '../../../rc-ses/angular-components/src/lib/components/button/button';
+import { RcSesFormFieldComponent } from '../../../rc-ses/angular-components/src/lib/components/form/form-field/form-field';
+import { RcSesInputDirective } from '../../../rc-ses/angular-components/src/lib/components/form/input/input/input';
 import { ServiceFormContainer } from '../../../rc-ses/angular-components/src/lib/components/layout/service-form-container/service-form-container';
 import { ServiceHeader } from '../../../rc-ses/angular-components/src/lib/components/layout/service-header/service-header';
 import { ServicePage } from '../../../rc-ses/angular-components/src/lib/components/layout/service-page/service-page';
 import { ServiceWizardSteps } from '../../../rc-ses/angular-components/src/lib/components/layout/service-wizard-steps/service-wizard-steps';
 import { MatSelectModule } from '@angular/material/select';
-import { SelectComponent } from '../../../rc-ses/angular-components/src/lib/components/form/input/select/select';
-import { NumberStepperComponent } from '../../../rc-ses/angular-components/src/lib/components/form/input/number-stepper/number-stepper';
+import { RcSesSelectComponent } from '../../../rc-ses/angular-components/src/lib/components/form/input/select/select';
+import { RcSesNumberStepperComponent } from '../../../rc-ses/angular-components/src/lib/components/form/input/number-stepper/number-stepper';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { AgreementCheckboxComponent } from '../../../rc-ses/angular-components/src/lib/components/form/input/agreement-checkbox/agreement-checkbox';
-import { MessageComponent } from '../../../rc-ses/angular-components/src/lib/components/message/message';
-import { RadioButtonGroupComponent } from '../../../rc-ses/angular-components/src/lib/components/form/input/radio-button-group/radio-button-group';
+import { RcSesAgreementCheckboxComponent } from '../../../rc-ses/angular-components/src/lib/components/form/input/agreement-checkbox/agreement-checkbox';
+import { RcSesMessageComponent } from '../../../rc-ses/angular-components/src/lib/components/message/message';
+import { RcSesRadioButtonGroupComponent } from '../../../rc-ses/angular-components/src/lib/components/form/input/radio-button-group/radio-button-group';
 
 @Component({
   selector: 'app-root',
@@ -44,15 +44,15 @@ import { RadioButtonGroupComponent } from '../../../rc-ses/angular-components/sr
     MatInputModule,
     MatSelectModule,
 
-    AccordionDirective,
-    AgreementCheckboxComponent,
-    ButtonDirective,
-    FormFieldComponent,
-    InputDirective,
-    MessageComponent,
-    NumberStepperComponent,
-    RadioButtonGroupComponent,
-    SelectComponent,
+    RcSesAccordionDirective,
+    RcSesAgreementCheckboxComponent,
+    RcSesButtonDirective,
+    RcSesFormFieldComponent,
+    RcSesInputDirective,
+    RcSesMessageComponent,
+    RcSesNumberStepperComponent,
+    RcSesRadioButtonGroupComponent,
+    RcSesSelectComponent,
 
     ServiceHeader,
     ServicePage,
@@ -68,6 +68,9 @@ import { RadioButtonGroupComponent } from '../../../rc-ses/angular-components/sr
 export class AppComponent {
   accordion = viewChild.required(MatAccordion);
 
+  /*
+   * PASLAUGOS UŽSAKYMAS
+   */
   formStep1 = new FormGroup({
     purpose: new FormControl(
       { value: '', disabled: false },
@@ -151,7 +154,9 @@ export class AppComponent {
     },
   ];
 
-
+  /*
+   * IŠDAVIMAS
+   */
   formStep2 = new FormGroup({
     issueMethod: new FormControl(
       { value: '', disabled: false },
@@ -192,21 +197,27 @@ export class AppComponent {
   ];
 
   issueMethodOptions: { value: string, label: string }[] = [
-    {
-      label: 'El. paštu',
-      value: 'email',
-    },
-    {
-      label: 'Padalinyje',
-      value: 'branch',
-    },
-    {
-      label: 'Paštu Lietuvoje',
-      value: 'mail-local',
-    },
-    {
-      label: 'Paštu užsienyje',
-      value: 'mail-abroad',
-    },
+    { label: 'El. paštu', value: 'email' },
+    { label: 'Padalinyje', value: 'branch' },
+    { label: 'Paštu Lietuvoje', value: 'mail-local' },
+    { label: 'Paštu užsienyje', value: 'mail-abroad' },
   ];
+
+  /*
+   * REIKALINGOS PAPILDOMOS PASLAUGOS
+   */
+  formStep3 = new FormGroup({
+    additionalServices: new FormControl(
+      { value: 'Papildoma paslauga #1', disabled: true },
+    ),
+  });
+
+  /*
+   * TERMINAI IR SĄLYGOS
+   */
+  formStep4 = new FormGroup({
+    termsAndConditionsAgreement: new FormControl(
+      { value: false, disabled: false },
+    ),
+  });
 }

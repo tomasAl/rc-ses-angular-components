@@ -1,5 +1,5 @@
 import { CommonModule, DOCUMENT } from "@angular/common";
-import { Component, AfterViewInit, OnDestroy, ElementRef, Inject, Renderer2, Input, OnChanges, SimpleChanges, OnInit, forwardRef, ViewChild, Injector } from "@angular/core";
+import { Component, AfterViewInit, OnDestroy, ElementRef, Inject, Renderer2, Input, OnChanges, SimpleChanges, OnInit, forwardRef, ViewChild, Injector, booleanAttribute } from "@angular/core";
 import { ControlContainer, ControlValueAccessor, FormControl, FormControlDirective, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from "@angular/forms";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatCommonModule } from "@angular/material/core";
@@ -30,12 +30,12 @@ import { MatInputModule } from "@angular/material/input";
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => AgreementCheckboxComponent),
+      useExisting: forwardRef(() => RcSesAgreementCheckboxComponent),
       multi: true
     }
   ]
 })
-export class AgreementCheckboxComponent implements ControlValueAccessor, AfterViewInit, OnChanges, OnInit, OnDestroy {
+export class RcSesAgreementCheckboxComponent implements ControlValueAccessor, AfterViewInit, OnChanges, OnInit, OnDestroy {
   @ViewChild(FormControlDirective, {static: true})
   formControlDirective: FormControlDirective | undefined;
 

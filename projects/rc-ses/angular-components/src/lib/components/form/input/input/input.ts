@@ -8,7 +8,7 @@ import { Directive, AfterViewInit, OnDestroy, ElementRef, Inject, OnInit, Render
     class: 'rc-ses-element rc-ses-input'
   },
 })
-export class InputDirective implements AfterViewInit, OnDestroy, OnInit {
+export class RcSesInputDirective implements AfterViewInit, OnDestroy, OnInit {
   public initialized: boolean | undefined;
 
   constructor(

@@ -1,11 +1,11 @@
 import { CommonModule, DOCUMENT } from "@angular/common";
-import { Component, AfterViewInit, OnDestroy, ElementRef, Inject, OnInit, Renderer2, Input, ContentChild, signal, AfterContentInit, ViewChild } from "@angular/core";
-import { ControlContainer, FormControl, FormGroupDirective, FormsModule } from "@angular/forms";
+import { Component, AfterViewInit, OnDestroy, ElementRef, Inject, OnInit, Renderer2, Input, ContentChild, AfterContentInit, ViewChild } from "@angular/core";
+import { ControlContainer, FormGroupDirective, FormsModule } from "@angular/forms";
 import { MatError, MatFormField, MatFormFieldControl, MatFormFieldModule, MatLabel } from "@angular/material/form-field";
 import { MatInput, MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
-import { InputDirective } from "../input/input/input";
+import { RcSesInputDirective } from "../input/input/input";
 
 @Component({
   selector: 'rc-ses-form-field',
@@ -20,7 +20,7 @@ import { InputDirective } from "../input/input/input";
     MatInputModule,
     MatFormFieldModule,
     MatError,
-    InputDirective,
+    RcSesInputDirective,
   ],
   host: {
     class: 'rc-ses-element rc-ses-form-field'
@@ -29,7 +29,7 @@ import { InputDirective } from "../input/input/input";
     { provide: ControlContainer, useExisting: FormGroupDirective }
   ],
 })
-export class FormFieldComponent implements AfterViewInit, AfterContentInit, OnDestroy, OnInit {
+export class RcSesFormFieldComponent implements AfterViewInit, AfterContentInit, OnDestroy, OnInit {
   @ContentChild(MatFormFieldControl) control!: MatFormFieldControl<any>;
 
   @ContentChild(MatFormField, { read: ElementRef}) formFieldRef!: ElementRef<MatFormField>;

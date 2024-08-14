@@ -8,7 +8,7 @@ import { Directive, AfterViewInit, OnDestroy, ElementRef, Inject, OnInit, Render
     class: 'rc-ses-element rc-ses-button'
   },
 })
-export class ButtonDirective implements AfterViewInit, OnDestroy, OnInit {
+export class RcSesButtonDirective implements AfterViewInit, OnDestroy, OnInit {
   @Input() color: "primary" | "secondary" | "neutral" | "dark" | "danger" = "primary";
 
   public initialized: boolean | undefined;

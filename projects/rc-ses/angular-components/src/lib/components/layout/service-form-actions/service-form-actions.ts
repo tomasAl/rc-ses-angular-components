@@ -4,13 +4,18 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 import { MatAccordion } from "@angular/material/expansion";
 import { MatIconModule } from "@angular/material/icon";
-import { ButtonDirective } from "../../button/button";
+import { RcSesButtonDirective } from "../../button/button";
 
 @Component({
   selector: 'rc-ses-service-form-actions',
   standalone: true,
   templateUrl: 'service-form-actions.html',
-  imports: [MatButtonModule, MatCardModule, MatIconModule, ButtonDirective],
+  imports: [
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    RcSesButtonDirective,
+  ],
   host: {
     class: 'rc-ses-element rc-ses-service-form-actions'
   },

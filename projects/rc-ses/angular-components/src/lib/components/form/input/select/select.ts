@@ -38,12 +38,12 @@ type Options = Option[];
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => SelectComponent),
+      useExisting: forwardRef(() => RcSesSelectComponent),
       multi: true
     }
   ]
 })
-export class SelectComponent implements ControlValueAccessor, AfterViewInit, OnChanges, OnInit, OnDestroy {
+export class RcSesSelectComponent implements ControlValueAccessor, AfterViewInit, OnChanges, OnInit, OnDestroy {
   @ContentChildren(MatOption)
   queryOptions!: QueryList<MatOption>;
 
