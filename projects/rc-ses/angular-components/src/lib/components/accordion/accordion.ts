@@ -8,7 +8,7 @@ import { Directive, AfterViewInit, OnDestroy, ElementRef, Inject, OnInit, Render
     class: 'rc-ses-element rc-ses-accordion'
   },
 })
-export class AccordionDirective implements AfterViewInit, OnDestroy, OnInit {
+export class RcSesAccordionDirective implements AfterViewInit, OnDestroy, OnInit {
   @Input() path: { label: string, path: string }[] = [];
 
   public initialized: boolean | undefined;
