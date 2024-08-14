@@ -42,7 +42,8 @@ export class RcSesAgreementCheckboxComponent implements ControlValueAccessor, Af
   @Input() formControl!: FormControl;
   @Input() formControlName: string | undefined;
 
-  @Input() description!: string;
+  @Input() description: string = '';
+  @Input({ transform: booleanAttribute }) flat: boolean = false;
 
   initialized: boolean = false;
 
