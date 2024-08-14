@@ -1,17 +1,24 @@
 @use 'sass:color';
 @use '@angular/material' as mat;
 
-:host {
-  align-items: flex-start;
-  display: flex;
+@layer rc-ses {
+  :host {
+    align-items: flex-start;
+    display: flex;
 
-  &.rc-ses-has-label-subtitle {
-    align-items: center;
+    &.rc-ses-has-label-subtitle {
+      align-items: center;
+
+      .rc-ses-label {
+        margin-top: 0 !important;
+      }
+    }
   }
 }
 
 @mixin bootstrap($theme, $typography) {
   @layer rc-ses {
+
     .rc-ses-form-field {
       margin-bottom: 1rem;
 
@@ -22,14 +29,15 @@
         font-weight: 500;
         line-height: 1.125rem;
         margin-right: 1.5rem;
-        margin-top: .825rem;
+        margin-top: .75rem;
         text-align: right;
         width: 243px;
 
         .rc-ses-label-subtitle {
           color: mat.get-theme-color($theme, neutral, 30);
-          font-size: map-get($typography, 'body-2', 'font-size');
+          font-size: .75rem;
           font-style: italic;
+          font-weight: 500;
           line-height: 1rem;
           margin-top: .125rem;
         }
@@ -110,6 +118,18 @@
         &-error-wrapper {
           padding-left: 0 !important;
           padding-right: 0 !important;
+        }
+      }
+
+      &--contains {
+
+        &--agreement-checkbox-component,
+        &--radio-button-group-component {
+          align-items: center !important;
+
+          .rc-ses-label {
+            margin-top: 0;
+          }
         }
       }
     }

@@ -6,6 +6,8 @@ import { MatInput, MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { RcSesInputDirective } from "../input/input/input";
+import { RcSesAgreementCheckboxComponent } from "../input/agreement-checkbox/agreement-checkbox";
+import { RcSesRadioButtonGroupComponent } from "../input/radio-button-group/radio-button-group";
 
 @Component({
   selector: 'rc-ses-form-field',
@@ -38,6 +40,12 @@ export class RcSesFormFieldComponent implements AfterViewInit, AfterContentInit,
   @ContentChild(MatInput, { read: ElementRef}) inputRef!: ElementRef<MatInput>;
   @ContentChild(MatInput) input!: MatInput;
 
+  @ContentChild(RcSesAgreementCheckboxComponent, { read: ElementRef })
+  rcSesAgreementCheckboxComponent: RcSesAgreementCheckboxComponent | undefined = undefined;
+
+  @ContentChild(RcSesRadioButtonGroupComponent, { read: ElementRef })
+  rcSesRadioButtonGroupComponent: RcSesRadioButtonGroupComponent | undefined = undefined;
+
   @ViewChild(MatLabel, { read: ElementRef }) labelComponent: MatLabel | undefined;
 
   @Input() label: string | undefined = undefined;
@@ -63,6 +71,12 @@ export class RcSesFormFieldComponent implements AfterViewInit, AfterContentInit,
       this._renderer.addClass(this.formField._elementRef.nativeElement, 'mat-form-field-readonly');
       this._renderer.addClass(this.formFieldRef.nativeElement, 'mat-form-field--readonly');
     }
+
+    if (this.rcSesAgreementCheckboxComponent)
+      this._renderer.addClass(this._element.nativeElement, 'rc-ses-form-field--contains--agreement-checkbox-component');
+
+    if (this.rcSesRadioButtonGroupComponent)
+      this._renderer.addClass(this._element.nativeElement, 'rc-ses-form-field--contains--radio-button-group-component');
 
     this.initialized = true;
   }
