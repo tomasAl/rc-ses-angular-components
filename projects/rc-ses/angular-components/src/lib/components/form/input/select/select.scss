@@ -4,6 +4,7 @@
 @mixin rc-ses-components-select($theme, $typography) {
   @layer rc-ses {
     .rc-ses-select {
+      display: block;
       flex-grow: 1;
 
       .mat-mdc-form-field {
