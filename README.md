@@ -1,27 +1,31 @@
-# RcSesAngularComponents
+# RC-SES Angukar komponentų biblioteka
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
+Šioje repozitorijoje rasite RC-SESAngular komponentų bibliotekos išeities kodą. Biblioteką sudaro:
+ - pagal bendrą RC-SES gidą stilizuoti funkcionalūs paslaugų užsakymo formų komponentai;
+ - struktūriniai sąsajos išdėstymo komponentai formų ir paslaugos užsakymo puslapio atvaizdavimui;
+ - pavyzdinės (demo) formos komponentas su visais šioje bibliotekos versijoje prieinamais komponentais;
 
-## Development server
+## Prerekvizitai
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. Įsitikinkite, kad turite įdiegtą bent **18.3** arba naujesnę [Node.js](https://nodejs.org/en) versiją;
+2. Jei to dar nepadarėte, lokaliai klonuokite `rc-ses-angular-components` projektą:
+    ```bash
+    git clone git@github.com:tomasAl/rc-ses-angular-components.git
+    ```
+3. Terminale atidarykite klonuoto projekto šakinį aplanką ir sudiekite projektui reikiamas bibliotekas:
+    ```bash
+    npm i
+    ```
 
-## Code scaffolding
+## Pavyzdinės formos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Repozitorijoje galite rasti pavyzdinių formų ir komponentų implementaciją (`src\projects\app\src\app\sample-form-multiple-steps` ir `src\projects\app\src\app\sample-form-multiple-steps`).
 
-## Build
+Norėdami peržiūrėti pavyzdinę formą naršyklėje:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+ - startuokite aplikaciją dev rėžime: `npm run build`;
+ - naršyklėje atidarykite [http://http://localhost:4200/](http://http://localhost:4200/);
 
-## Running unit tests
+## *npm* biblioteka
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Versijuojama sukompiliuota *npm* biblioteka bus prieinama artimiausiu metu.

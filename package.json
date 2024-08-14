@@ -1,5 +1,6 @@
 {
   "name": "@rc-ses/angular-components",
+  "author": "Codeopera, UAB",
   "version": "0.0.1",
   "scripts": {
     "dev": "ng serve",
