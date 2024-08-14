@@ -61,6 +61,23 @@
               />
             </rc-ses-form-field>
 
+            <rc-ses-form-field label="Data">
+              <mat-form-field>
+                <input
+                  matInput
+                  [matDatepicker]="datepicker"
+                  formControlName="date"
+                />
+                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                <mat-datepicker #datepicker>
+                  <mat-datepicker-actions>
+                    <button mat-button matDatepickerCancel>Cancel</button>
+                    <button mat-raised-button matDatepickerApply>Apply</button>
+                  </mat-datepicker-actions>
+                </mat-datepicker>
+              </mat-form-field>
+            </rc-ses-form-field>
+
             <rc-ses-form-field label="Skaičius">
               <rc-ses-number-stepper
                 formControlName="integer"

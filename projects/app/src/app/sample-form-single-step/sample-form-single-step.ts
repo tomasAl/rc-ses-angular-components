@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { MatCommonModule } from '@angular/material/core';
+import { MatCommonModule, provideNativeDateAdapter } from '@angular/material/core';
 import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
@@ -27,6 +27,7 @@ import { RcSesIconsModule } from '../../../../rc-ses/angular-components/src/lib/
 import { MatDividerModule } from '@angular/material/divider';
 import { RcSesDividerComponent } from '../../../../rc-ses/angular-components/src/lib/components/divider/divider';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @Component({
   selector: 'sample-form-single-step',
@@ -39,6 +40,7 @@ import { MatRadioModule } from '@angular/material/radio';
 
     MatButtonModule,
     MatCommonModule,
+    MatDatepickerModule,
     MatDividerModule,
     MatExpansionModule,
     MatFormFieldModule,
@@ -67,6 +69,7 @@ import { MatRadioModule } from '@angular/material/radio';
   styleUrl: './sample-form-single-step.scss',
   providers: [
     HttpClient,
+    provideNativeDateAdapter(),
   ],
 })
 export class SampleFormSingleStepComponent {
@@ -89,10 +92,10 @@ export class SampleFormSingleStepComponent {
     //   { value: false, disabled: false },
     //   { validators: Validators.required },
     // ),
-    // date: new FormControl(
-    //   { value: '', disabled: false },
-    //   { validators: Validators.required },
-    // ),
+    date: new FormControl(
+      { value: '', disabled: false },
+      { validators: Validators.required },
+    ),
     // dateRange: new FormControl(
     //   { value: '', disabled: false },
     //   { validators: Validators.required },

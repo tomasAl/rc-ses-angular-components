@@ -11,6 +11,7 @@
 @use '../../../rc-ses/angular-components/src/lib/components/form/form-field/form-field.scss' as rc-ses-form-field;
 @use '../../../rc-ses/angular-components/src/lib/components/form/input/agreement-checkbox/agreement-checkbox.scss' as rc-ses-agreement-checkbox;
 @use '../../../rc-ses/angular-components/src/lib/components/form/input/checkbox/checkbox.scss' as rc-ses-checkbox;
+@use '../../../rc-ses/angular-components/src/lib/components/form/input/datepicker/datepicker.scss' as rc-ses-datepicker;
 @use '../../../rc-ses/angular-components/src/lib/components/form/input/input/input.scss' as rc-ses-input;
 @use '../../../rc-ses/angular-components/src/lib/components/form/input/number-stepper/number-stepper.scss' as rc-ses-number-stepper;
 @use '../../../rc-ses/angular-components/src/lib/components/form/input/select/select.scss' as rc-ses-select;
@@ -47,6 +48,7 @@
 @include rc-ses-checkbox.bootstrap(theme.$theme, typography.$typography);
 @include rc-ses-divider.bootstrap(theme.$theme, typography.$typography);
 @include rc-ses-form-field.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-datepicker.bootstrap(theme.$theme, typography.$typography);
 @include rc-ses-input.bootstrap(theme.$theme, typography.$typography);
 @include rc-ses-message.bootstrap(theme.$theme, typography.$typography);
 @include rc-ses-number-stepper.bootstrap(theme.$theme, typography.$typography);
