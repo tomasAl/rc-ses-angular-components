@@ -4,22 +4,24 @@
 @use './typography.scss' as typography;
 @use './theme.scss' as theme;
 
-@use '../../../rc-ses/angular-components/src/lib/components/accordion/accordion.scss' as accordion;
-@use '../../../rc-ses/angular-components/src/lib/components/breadcrumbs/breadcrumbs.scss' as breadcrumbs;
-@use '../../../rc-ses/angular-components/src/lib/components/button/button.scss' as button;
-@use '../../../rc-ses/angular-components/src/lib/components/form/form-field/form-field.scss' as form-field;
-@use '../../../rc-ses/angular-components/src/lib/components/form/input/agreement-checkbox/agreement-checkbox.scss' as agreement-checkbox;
-@use '../../../rc-ses/angular-components/src/lib/components/form/input/checkbox/checkbox.scss' as checkbox;
-@use '../../../rc-ses/angular-components/src/lib/components/form/input/input/input.scss' as input;
-@use '../../../rc-ses/angular-components/src/lib/components/form/input/number-stepper/number-stepper.scss' as number-stepper;
-@use '../../../rc-ses/angular-components/src/lib/components/form/input/select/select.scss' as select;
-@use '../../../rc-ses/angular-components/src/lib/components/form/input/radio-button-group/radio-button-group.scss' as radio-button-group;
-@use '../../../rc-ses/angular-components/src/lib/components/message/message.scss' as message;
-@use '../../../rc-ses/angular-components/src/lib/components/layout/service-header/service-header.scss' as service-header;
-@use '../../../rc-ses/angular-components/src/lib/components/layout/service-form-actions/service-form-actions.scss' as service-form-actions;
-@use '../../../rc-ses/angular-components/src/lib/components/layout/service-form-container/service-form-container.scss' as service-form-container;
-@use '../../../rc-ses/angular-components/src/lib/components/layout/service-page/service-page.scss' as service-page;
-@use '../../../rc-ses/angular-components/src/lib/components/layout/service-wizard-steps/service-wizard-steps.scss' as service-wizard-steps;
+@use '../../../rc-ses/angular-components/src/lib/components/accordion/accordion.scss' as rc-ses-accordion;
+@use '../../../rc-ses/angular-components/src/lib/components/breadcrumbs/breadcrumbs.scss' as rc-ses-breadcrumbs;
+@use '../../../rc-ses/angular-components/src/lib/components/button/button.scss' as rc-ses-button;
+@use '../../../rc-ses/angular-components/src/lib/components/divider/divider.scss' as rc-ses-divider;
+@use '../../../rc-ses/angular-components/src/lib/components/form/form-field/form-field.scss' as rc-ses-form-field;
+@use '../../../rc-ses/angular-components/src/lib/components/form/input/agreement-checkbox/agreement-checkbox.scss' as rc-ses-agreement-checkbox;
+@use '../../../rc-ses/angular-components/src/lib/components/form/input/checkbox/checkbox.scss' as rc-ses-checkbox;
+@use '../../../rc-ses/angular-components/src/lib/components/form/input/input/input.scss' as rc-ses-input;
+@use '../../../rc-ses/angular-components/src/lib/components/form/input/number-stepper/number-stepper.scss' as rc-ses-number-stepper;
+@use '../../../rc-ses/angular-components/src/lib/components/form/input/select/select.scss' as rc-ses-select;
+@use '../../../rc-ses/angular-components/src/lib/components/form/input/radio/radio.scss' as rc-ses-radio;
+@use '../../../rc-ses/angular-components/src/lib/components/form/input/radio-button-group/radio-button-group.scss' as rc-ses-radio-button-group;
+@use '../../../rc-ses/angular-components/src/lib/components/message/message.scss' as rc-ses-message;
+@use '../../../rc-ses/angular-components/src/lib/components/layout/service-header/service-header.scss' as rc-ses-service-header;
+@use '../../../rc-ses/angular-components/src/lib/components/layout/service-form-actions/service-form-actions.scss' as rc-ses-service-form-actions;
+@use '../../../rc-ses/angular-components/src/lib/components/layout/service-form-container/service-form-container.scss' as rc-ses-service-form-container;
+@use '../../../rc-ses/angular-components/src/lib/components/layout/service-page/service-page.scss' as rc-ses-service-page;
+@use '../../../rc-ses/angular-components/src/lib/components/layout/service-wizard-steps/service-wizard-steps.scss' as rc-ses-service-wizard-steps;
 
 @layer rc-ses-variables, rc-ses, material;
 
@@ -39,22 +41,23 @@
   @include mat.typography-hierarchy(typography.$typography, $back-compat: true);
 }
 
-@include agreement-checkbox.rc-ses-components-agreement-checkbox(theme.$theme, typography.$typography);
-@include accordion.rc-ses-components-accordion(theme.$theme, typography.$typography);
-@include accordion.rc-ses-components-accordion(theme.$theme, typography.$typography);
-@include button.rc-ses-components-button(theme.$theme, typography.$typography);
-@include checkbox.rc-ses-components-checkbox(theme.$theme, typography.$typography);
-@include form-field.rc-ses-components-form-field(theme.$theme, typography.$typography);
-@include input.rc-ses-components-input(theme.$theme, typography.$typography);
-@include message.rc-ses-components-message(theme.$theme, typography.$typography);
-@include number-stepper.rc-ses-components-number-stepper(theme.$theme, typography.$typography);
-@include radio-button-group.rc-ses-components-radio-button-group(theme.$theme, typography.$typography);
-@include select.rc-ses-components-select(theme.$theme, typography.$typography);
+@include rc-ses-agreement-checkbox.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-accordion.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-button.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-checkbox.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-divider.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-form-field.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-input.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-message.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-number-stepper.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-radio.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-radio-button-group.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-select.bootstrap(theme.$theme, typography.$typography);
 
-@include service-header.rc-ses-components-service-header(theme.$theme, typography.$typography);
-@include breadcrumbs.rc-ses-components-breadcrumbs(theme.$theme, typography.$typography);
-@include service-form-actions.rc-ses-components-service-form-actions(theme.$theme, typography.$typography);
-@include service-form-container.rc-ses-components-service-form-container(theme.$theme, typography.$typography);
-@include service-page.rc-ses-components-service-page(theme.$theme, typography.$typography);
-@include service-wizard-steps.rc-ses-components-service-wizard-steps(theme.$theme, typography.$typography);
+@include rc-ses-service-header.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-breadcrumbs.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-service-form-actions.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-service-form-container.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-service-page.bootstrap(theme.$theme, typography.$typography);
+@include rc-ses-service-wizard-steps.bootstrap(theme.$theme, typography.$typography);
 
