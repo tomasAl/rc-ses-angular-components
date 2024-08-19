@@ -1,4 +1,4 @@
-# RC-SES Angukar komponentų biblioteka
+# RC-SES Angular komponentų biblioteka
 
 Šioje repozitorijoje rasite RC-SESAngular komponentų bibliotekos išeities kodą. Biblioteką sudaro:
  - pagal bendrą RC-SES gidą stilizuoti funkcionalūs paslaugų užsakymo formų komponentai;
